@@ -313,7 +313,7 @@ namespace Sep.Git.Tfs.VsCommon
 
                     AddNewRootBranch(rootBranches, new RootBranch(rootChangesetInParentBranch, tfsPathBranchToCreate));
                     Trace.WriteLineIf(renameFromBranch != null, "Found original branch '" + renameFromBranch + "' (renamed in branch '" + tfsPathBranchToCreate + "')");
-                    if (renameFromBranch != null)
+                    if (renameFromBranch != null && !renameFromBranch.Equals(tfsParentBranch))
                         GetRootChangesetForBranch(rootBranches, renameFromBranch);
                 }
                 catch (VersionControlException)
